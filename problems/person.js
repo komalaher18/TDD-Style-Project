@@ -8,6 +8,10 @@ class Person {
   sayHello() {
     return `Hello ${this.name}`;
   }
+
+  visit(otherPerson){
+    return `${this.name} visited ${otherPerson.name}`;
+  }
 }
 
 

@@ -31,4 +31,16 @@ describe('Person', function(){
             expect(result).to.equal("Hello john");
         });
     });
+
+    describe('visit(otherPerson)', function(){
+        it('should return the string stating that person visited other person' ,function(){
+            const person1 = new Person("Mai", 25);
+            const person2 = new Person("Erin", 30);
+            const result = person1.visit(person2);
+            expect(result).to.equal("Mai visited Erin");
+
+        })
+
+
+    })
 })
