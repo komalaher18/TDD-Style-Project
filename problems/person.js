@@ -12,6 +12,10 @@ class Person {
   visit(otherPerson){
     return `${this.name} visited ${otherPerson.name}`;
   }
+
+  switchVisit(otherPerson) {
+    return otherPerson.visit(this);
+  }
 }
 
 

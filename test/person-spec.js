@@ -38,9 +38,15 @@ describe('Person', function(){
             const person2 = new Person("Erin", 30);
             const result = person1.visit(person2);
             expect(result).to.equal("Mai visited Erin");
-
         })
+    });
 
-
-    })
+    describe('switchVisit(otherPerson)', function () {
+        it('should invoke visit function of the otherPerson passing current instance as an argument', function () {
+            const person1 = new Person("Mai", 25);
+            const person2 = new Person("Erin", 30);
+            const result = person1.switchVisit(person2);
+            expect(result).to.equal("Erin visited Mai");
+        });
+    });
 })
