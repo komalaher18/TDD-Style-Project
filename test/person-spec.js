@@ -20,6 +20,15 @@ describe('Person', function(){
             expect(result.name).to.equal("john");
             expect(result.age).to.equal(20);
         })
-})
+    })
 
+    describe('sayHello', function() {
+        it("should return the name and greeting message", function() {
+            const name = "john";
+            const age = 20;
+            const person = new Person(name, age);
+            const result = person.sayHello();
+            expect(result).to.equal("Hello john");
+        });
+    });
 })
