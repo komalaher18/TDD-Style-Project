@@ -49,4 +49,44 @@ describe('Person', function(){
             expect(result).to.equal("Erin visited Mai");
         });
     });
+
+    describe('update(obj)', function(){
+        context('when the incoming argument is valid object',function(){
+            it('should update the instance properties to match passed in object values', function(){
+                const person = new Person("Mai", 25);
+                person.update({name: "Erin", age: 30});
+                expect(person.name).to.equal("Erin");
+                expect(person.age).to.equal(30);
+
+            })
+            it('should throw typeError if obj does not have name & age property', function(){
+                const person = new Person("Mai", 25);
+                expect(() => {
+                    person.update({}).to.throw(TypeError, "the obj must have name and age property.")
+
+                })
+                expect(() => {
+                    person.update({name: "Mai"}).to.throw(TypeError, "the obj must have name and age property.")
+
+                })
+                expect(() => {
+                    person.update({age: 25}).to.throw(TypeError, "the obj must have name and age property.")
+
+                })
+            })
+
+        })
+        context('when the incoming argument is not valid object',function(){
+            it('should throw typeError if it is not a valid obj', function(){
+                const person = new Person("Mai", 25);
+            expect(() => {
+                    person.update("").to.throw(TypeError, "the argument must be a valid object")
+
+                })
+
+            })
+        })
+
+    })
+
 })
